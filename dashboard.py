@@ -5,7 +5,7 @@ import time
 from fault_detection import detect_faults
 from simulator import run_dynamic_session
 
-# ── Brand colors ──────────────────────────────
+#brand
 YELLOW  = "#F5C518"
 WHITE   = "#FFFFFF"
 DARK    = "#0E0E0E"
@@ -18,7 +18,7 @@ st.set_page_config(
     layout="wide"
 )
 
-# ── Custom CSS ────────────────────────────────
+#css
 st.markdown(f"""
     <style>
         body, .stApp {{ background-color: {DARK}; }}
@@ -66,15 +66,15 @@ st.markdown(f"""
     </style>
 """, unsafe_allow_html=True)
 
-# ── Header ────────────────────────────────────
+#header
 st.markdown(f"<h1 style='font-size:28px; margin-bottom:0'>SUNNYBOTICS</h1>", unsafe_allow_html=True)
 st.markdown(f"<p style='color:{DIMGRAY}; margin-top:0; font-size:13px; letter-spacing:2px'>FIELD MONITOR</p>", unsafe_allow_html=True)
 st.markdown("<hr style='border-color:#222; margin: 8px 0 20px 0'>", unsafe_allow_html=True)
 
-# ── Popup slot — defined before button so it can be cleared ──
+# popup
 popup_slot = st.empty()
 
-# ── Run Simulation Button ─────────────────────
+# run button
 if st.button("RUN NEW SIMULATION"):
     popup_slot.empty()
     st.session_state.df = run_dynamic_session()
@@ -86,7 +86,7 @@ if "df" not in st.session_state:
 
 df = st.session_state.df
 
-# ── Layout ────────────────────────────────────
+# layout
 col_charts, col_alerts = st.columns([3, 1])
 
 with col_charts:
@@ -98,7 +98,7 @@ with col_alerts:
     st.markdown(f"<h3 style='font-size:13px; letter-spacing:2px; color:{DIMGRAY}'>ACTIVE ALERTS</h3>", unsafe_allow_html=True)
     alert_slot = st.empty()
 
-# ── Live Playback ─────────────────────────────
+# playback
 alerts_seen = []
 
 for i in range(1, len(df) + 1):
@@ -165,7 +165,7 @@ for i in range(1, len(df) + 1):
 
     time.sleep(0.05)
 
-# ── Simulation complete popup ─────────────────
+# completion
 total_errors = len(alerts_seen)
 popup_slot.markdown(f"""
     <div style='
