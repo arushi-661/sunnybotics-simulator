@@ -17,7 +17,9 @@ How To Run
 3. Launch the dashboard:
    python3 -m streamlit run dashboard.py
 
-Then press RUN NEW SIMULATION in the browser. Each run is randomized — try it a few times to see different fault combinations.
+Then press RUN NEW SIMULATION in the browser. Each run is randomized and generates different fault combinations.
+
+
 Robot Specs
 
 Based on the Sunnybotics technical datasheet:
